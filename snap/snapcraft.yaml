@@ -1,5 +1,5 @@
 name: dmd
-version: 2.073.2
+version: 2.074.0
 summary: Reference compiler for the D programming language
 description: |
     DMD ('Digital Mars D') is the reference compiler for the D
@@ -27,7 +27,7 @@ apps:
 parts:
   dmd:
     source: https://github.com/dlang/dmd.git
-    source-tag: &dmd-version v2.073.2
+    source-tag: &dmd-version v2.074.0
     source-type: git
     plugin: make
     makefile: posix.mak
