@@ -59,6 +59,7 @@ parts:
     makefile: posix.mak
     make-parameters:
     - DMD=../../dmd/build/src/dmd
+    - CFLAGS=$(MODEL_FLAG) -fPIC -DHAVE_UNISTD_H -Wa,-mrelax-relocations=no
     organize:
       src/druntime/import: import/druntime
     stage:
@@ -78,6 +79,7 @@ parts:
     - DMD=../../dmd/build/src/dmd
     - DRUNTIME_PATH=../../druntime/build
     - VERSION=../../dmd/build/VERSION
+    - CFLAGS=$(MODEL_FLAG) -fPIC -DHAVE_UNISTD_H -Wa,-mrelax-relocations=no
     organize:
       linux/lib32: lib32
       linux/lib64: lib64
