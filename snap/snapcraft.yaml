@@ -80,7 +80,7 @@ parts:
     - DRUNTIME_PATH=../../druntime/build
     - VERSION=../../dmd/build/VERSION
     - CFLAGS=$(MODEL_FLAG) -fPIC -DHAVE_UNISTD_H -O3 -Wa,-mrelax-relocations=no
-    - PIC=-fPIC
+    - PIC=1
     organize:
       linux/lib32: lib32
       linux/lib64: lib64
@@ -102,7 +102,7 @@ parts:
     makefile: posix.mak
     make-parameters:
     - DMD=../../../stage/bin/dmd
-    - PIC=-fPIC
+    - PIC=1
     build-packages:
     - libcurl4-gnutls-dev
     stage:
