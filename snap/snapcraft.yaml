@@ -60,6 +60,7 @@ parts:
     make-parameters:
     - DMD=../../dmd/build/src/dmd
     - CFLAGS=$(MODEL_FLAG) -fPIC -DHAVE_UNISTD_H -O3 -Wa,-mrelax-relocations=no
+    - PIC=1
     organize:
       src/druntime/import: import/druntime
     stage:
@@ -102,7 +103,6 @@ parts:
     makefile: posix.mak
     make-parameters:
     - DMD=../../../stage/bin/dmd
-    - PIC=1
     build-packages:
     - libcurl4-gnutls-dev
     stage:
