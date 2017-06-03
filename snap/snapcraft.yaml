@@ -34,6 +34,7 @@ parts:
     make-parameters:
     - AUTO_BOOTSTRAP=1
     - RELEASE=1
+    prepare: echo $(git describe) | cut -d v -f 2- | tee VERSION
     organize:
       linux/bin32: bin
       linux/bin64: bin
