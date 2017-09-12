@@ -1,5 +1,5 @@
 name: dmd
-version: 2.075.1
+version: 2.076.0
 summary: Reference compiler for the D programming language
 description: |
     DMD ('Digital Mars D') is the reference compiler for the D
@@ -27,14 +27,13 @@ apps:
 parts:
   dmd:
     source: https://github.com/dlang/dmd.git
-    source-tag: &dmd-version v2.075.1
+    source-tag: &dmd-version v2.076.0
     source-type: git
     plugin: make
     makefile: posix.mak
     make-parameters:
     - AUTO_BOOTSTRAP=1
     - RELEASE=1
-    prepare: echo $(git describe) | cut -d v -f 2- | tee VERSION
     organize:
       linux/bin32: bin
       linux/bin64: bin
@@ -59,7 +58,7 @@ parts:
     plugin: make
     makefile: posix.mak
     make-parameters:
-    - DMD=../../dmd/build/src/dmd
+    - DMD_DIR=../../dmd/build
     - CFLAGS=$(MODEL_FLAG) -fPIC -DHAVE_UNISTD_H -O3 -Wa,-mrelax-relocations=no
     - PIC=1
     organize:
@@ -78,7 +77,7 @@ parts:
     plugin: make
     makefile: posix.mak
     make-parameters:
-    - DMD=../../dmd/build/src/dmd
+    - DMD_DIR=../../dmd/build
     - DRUNTIME_PATH=../../druntime/build
     - VERSION=../../dmd/build/VERSION
     - CFLAGS=$(MODEL_FLAG) -fPIC -DHAVE_UNISTD_H -O3 -Wa,-mrelax-relocations=no
@@ -103,7 +102,9 @@ parts:
     plugin: make
     makefile: posix.mak
     make-parameters:
-    - DMD=../../../stage/bin/dmd
+    - DMD_DIR=../../dmd/build
+    - DRUNTIME_PATH=../../druntime/build
+    - PHOBOS_PATH=../../phobos/build
     build-packages:
     - libcurl4-gnutls-dev
     stage:
