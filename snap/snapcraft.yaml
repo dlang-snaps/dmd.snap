@@ -34,6 +34,7 @@ parts:
     make-parameters:
     - AUTO_BOOTSTRAP=1
     - ENABLE_RELEASE=1
+    - ENABLE_LTO=1
     organize:
       linux/bin32: bin
       linux/bin64: bin
