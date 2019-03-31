@@ -52,6 +52,12 @@ parts:
     organize:
       dmd.conf: bin/dmd.conf
 
+  dmd-license:
+    plugin: dump
+    source: doc
+    organize:
+      LICENSE: doc/LICENSE
+
   druntime:
     source: https://github.com/dlang/druntime.git
     source-tag: *dmd-version
