@@ -16,13 +16,10 @@ apps:
     command: bin/dmd
   ddemangle:
     command: bin/ddemangle
-    aliases: [ddemangle]
   dustmite:
     command: bin/dustmite
-    aliases: [dustmite]
   rdmd:
     command: bin/rdmd
-    aliases: [rdmd]
 
 parts:
   dmd:
