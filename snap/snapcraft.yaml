@@ -99,6 +99,7 @@ parts:
       [ -d ../install/linux/lib64 ] && SO_FILE_64=$(find ../install/linux/lib64/* -name "libphobos2.so.[0-9]*.[0-9]*.[0-9]*")
       [ -d ../install/linux/lib32 ] && [ -f $SO_FILE_32 ] && ln -sfr $SO_FILE_32 ${SO_FILE_32%.*}
       [ -d ../install/linux/lib64 ] && [ -f $SO_FILE_64 ] && ln -sfr $SO_FILE_64 ${SO_FILE_64%.*}
+      exit 0
     build-packages:
     - gcc
     after:
