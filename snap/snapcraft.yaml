@@ -1,5 +1,5 @@
 name: dmd
-version: 2.086.1
+version: 2.087.0
 summary: Reference compiler for the D programming language
 description: |
     DMD ('Digital Mars D') is the reference compiler for the D
@@ -24,7 +24,7 @@ apps:
 parts:
   dmd:
     source: https://github.com/dlang/dmd.git
-    source-tag: &dmd-version v2.086.1
+    source-tag: &dmd-version v2.087.0
     source-type: git
     plugin: make
     makefile: posix.mak
@@ -93,13 +93,6 @@ parts:
     stage:
     - -linux
     - -src
-    override-build: |
-      snapcraftctl build
-      [ -d ../install/linux/lib32 ] && SO_FILE_32=$(find ../install/linux/lib32/* -name "libphobos2.so.[0-9]*.[0-9]*.[0-9]*")
-      [ -d ../install/linux/lib64 ] && SO_FILE_64=$(find ../install/linux/lib64/* -name "libphobos2.so.[0-9]*.[0-9]*.[0-9]*")
-      [ -d ../install/linux/lib32 ] && [ -f $SO_FILE_32 ] && ln -sfr $SO_FILE_32 ${SO_FILE_32%.*}
-      [ -d ../install/linux/lib64 ] && [ -f $SO_FILE_64 ] && ln -sfr $SO_FILE_64 ${SO_FILE_64%.*}
-      exit 0
     build-packages:
     - gcc
     after:
