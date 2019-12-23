@@ -11,8 +11,8 @@ jobs:
         docker build -t snapcraft_image --force-rm=true --rm=true -f .github/docker/ubuntu/snapcraft.Dockerfile .
     - name: Run the containers
       run: |
-        docker run --name=build_container -ti --tmpfs /run --tmpfs /run/lock --tmpfs /tmp --cap-add SYS_ADMIN --device=/dev/fuse --security-opt apparmor:unconfined --security-opt seccomp:unconfined -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /lib/modules:/lib/modules:ro -d snapcraft_image
-        docker exec -w /workdir build_container /bin/bash -c "snap wait system seed.loaded" 
+        docker run --name=build_container -ti -d --tmpfs /run --tmpfs /run/lock --tmpfs /tmp --privileged -v /lib/modules:/lib/modules:ro snapcraft_image
+        docker exec -w /workdir build_container /bin/bash -c "snap wait system seed.loaded"
     - name: Install snapcraft
       run: |
         docker exec -w /workdir build_container /bin/bash -c "snap install snapcraft --classic"
