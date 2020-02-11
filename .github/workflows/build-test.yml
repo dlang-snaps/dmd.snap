@@ -15,6 +15,7 @@ jobs:
         docker exec -w /workdir build_container /bin/bash -c "snap wait system seed.loaded"
     - name: Install snapcraft
       run: |
+        docker exec -w /workdir build_container /bin/bash -c "snap install core"
         docker exec -w /workdir build_container /bin/bash -c "snap install snapcraft --classic"
     - name: Build dmd
       run: |
