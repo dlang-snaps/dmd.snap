@@ -48,7 +48,7 @@ parts:
     - dmd-patch-10889
     
 
-  dmd-patch-10889
+  dmd-patch-10889:
     source: https://patch-diff.githubusercontent.com/raw/dlang/dmd/pull/10889.patch
     plugin: dump
     prime:
