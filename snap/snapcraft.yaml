@@ -43,7 +43,7 @@ parts:
     - g++
     override-pull: |
       snapcraftctl build
-      wget https://patch-diff.githubusercontent.com/raw/dlang/dmd/pull/10889.patch
+      curl -o 10889.patch https://patch-diff.githubusercontent.com/raw/dlang/dmd/pull/10889.patch
       git am --signoff < 10889.patch 
 
   dmd-config:
